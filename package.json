@@ -1,0 +1,27 @@
+{
+  "name": "virtual-bike-backend",
+  "version": "1.0.0",
+  "description": "Backend API para inscripciones Clásica Virtual Bike 2026",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "migrate": "prisma migrate deploy",
+    "migrate:dev": "prisma migrate dev",
+    "seed": "node prisma/seed.js"
+  },
+  "keywords": [],
+  "author": "Sebastian Mibanez",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^5.8.0",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "resend": "^3.2.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "prisma": "^5.8.0"
+  }
+}

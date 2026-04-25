@@ -1,0 +1,45 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Inscripcion {
+  id            Int       @id @default(autoincrement())
+
+  nombre        String
+  apellido      String
+  email         String
+  telefono      String
+  rut           String    @unique
+
+  genero        String
+  categoria     String
+  club          String?
+
+  status        String    @default("pending")
+
+  transactionId String?   @unique
+  sessionId     String?
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([email])
+  @@index([rut])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model AuditLog {
+  id            Int       @id @default(autoincrement())
+  action        String
+  inscripcionId Int?
+  adminEmail    String?
+  ipAddress     String?
+  details       String?
+  createdAt     DateTime  @default(now())
+}
