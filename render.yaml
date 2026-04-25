@@ -2,7 +2,7 @@ services:
   - type: web
     name: virtual-bike-backend
     runtime: node
-    buildCommand: npm install && npx prisma migrate deploy
+    buildCommand: npm install && npx prisma generate && npx prisma db push
     startCommand: npm start
     envVars:
       - key: NODE_ENV
